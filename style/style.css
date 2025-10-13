@@ -1,0 +1,46 @@
+.bg-body-tertiary {
+    background-color: rgb(13 110 253) !important;
+}
+
+h1 {
+    margin: 25px 20px 0px;
+    font-family: "Merriweather", serif;
+    font-weight: 700;
+}
+
+#registrosIngresos {
+    margin: 25px 20px 10px 20px;
+}
+
+#registrosGastos {
+    margin: 25px 20px 10px 20px;
+}
+
+#busquedaDatos {
+    margin: 10px 20px 10px 20px;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+h4 {
+    font-size: 15px;
+}
+
+#ingresos {
+    width: 50%;
+}
+
+#registrosContainer {
+    width: 50%;
+}
+
+#datosAlmacenados {
+    margin: 10px 20px 10px 20px;
+}

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Script principal -->
+    <script defer src="./script/main.js"></script>
+    <title>Document</title>
+    <!-- Fuente Merriweather -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap"
+        rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+
+<body class>
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="./index.html">Finanzas personales</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./administrar-datos.html">Administrar datos</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Título principal -->
+    <div>
+        <h1 class="mb-4">Finanzas personales</h1>
+    </div>
+    <!-- Sección principal: Formulario y registros de ingresos -->
+    <section id="registrosIngresos" class="d-flex">
+        <!-- Formulario de ingresos -->
+        <div id="ingresos" class="me-4">
+            <h2>Ingresos</h2>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Nombre</span>
+                <input id="input-ingreso-nombre" type="text" class="form-control" placeholder="Nombre del ingreso"
+                    aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Categoría</span>
+                <input id="input-ingreso-categoria" type="text" class="form-control" placeholder="Categoría del ingreso"
+                    aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Monto</span>
+                <input id="input-ingreso-monto" type="text" class="form-control" placeholder="Monto del ingreso"
+                    aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div>
+                <button class="btn btn-primary my-2" type="submit" id="boton-agregar-ingreso">Agregar</button>
+                <h3>Para guardar definitivamente (local storage)</h3>
+                <button class="btn btn-primary my-2" type="submit" id="boton-guardar-ingreso">Guardar</button>
+            </div>
+        </div>
+        <!-- Contenedor donde se muestran los ingresos agregados -->
+        <div id="registrosContainer">
+            <h3>Registros de ingresos</h3>
+            <p>Aquí van los ingresos que vas agregando</p>
+        </div>
+    </section>
+
+    <!-- Sección gastos -->
+    <section id="registrosGastos" class="d-flex">
+        <!-- Formulario de gastos -->
+        <div id="gastos" class="me-4">
+            <h2>Gastos</h2>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon2">Nombre</span>
+                <input id="input-gasto-nombre" type="text" class="form-control" placeholder="Nombre del gasto"
+                    aria-label="Username" aria-describedby="basic-addon2">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon2">Categoría</span>
+                <input id="input-gasto-categoria" type="text" class="form-control" placeholder="Categoría del gasto"
+                    aria-label="Username" aria-describedby="basic-addon2">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon2">Monto</span>
+                <input id="input-gasto-monto" type="text" class="form-control" placeholder="Monto del gasto"
+                    aria-label="Username" aria-describedby="basic-addon2">
+            </div>
+            <div>
+                <button class="btn btn-primary my-2" type="submit" id="boton-agregar-gasto">Agregar</button>
+                <h3>Para guardar definitivamente (local storage)</h3>
+                <button class="btn btn-primary my-2" type="submit" id="boton-guardar-gasto">Guardar</button>
+            </div>
+        </div>
+        <!-- Contenedor donde se muestran los gastos agregados -->
+        <div id="registrosContainerGastos">
+            <h3>Registros de gastos</h3>
+            <p>Aquí van los gastos que vas agregando</p>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
