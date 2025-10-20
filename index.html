@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="./style/style.css">
 </head>
 
-<body class>
+<body>
     <!-- Barra de navegación -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
         <div class="container-fluid">
@@ -65,8 +65,6 @@
             </div>
             <div>
                 <button class="btn btn-primary my-2" type="submit" id="boton-agregar-ingreso">Agregar</button>
-                <h3>Para guardar definitivamente (local storage)</h3>
-                <button class="btn btn-primary my-2" type="submit" id="boton-guardar-ingreso">Guardar</button>
             </div>
         </div>
         <!-- Contenedor donde se muestran los ingresos agregados -->
@@ -76,38 +74,20 @@
         </div>
     </section>
 
-    <!-- Sección gastos -->
-    <section id="registrosGastos" class="d-flex">
-        <!-- Formulario de gastos -->
-        <div id="gastos" class="me-4">
-            <h2>Gastos</h2>
-            <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon2">Nombre</span>
-                <input id="input-gasto-nombre" type="text" class="form-control" placeholder="Nombre del gasto"
-                    aria-label="Username" aria-describedby="basic-addon2">
+    <!-- Notificaciones Toast -->
+    <div class="toast-container position-fixed top-0 end-0">
+        <div id="notificationToastEspacios" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <!-- <img src="..." class="rounded me-2" alt="..."> Esto es para poner logo-->
+                <strong class="me-auto">Registro de ingresos</strong>
+                <!-- <small>11 mins ago</small> -->
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
             </div>
-            <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon2">Categoría</span>
-                <input id="input-gasto-categoria" type="text" class="form-control" placeholder="Categoría del gasto"
-                    aria-label="Username" aria-describedby="basic-addon2">
-            </div>
-            <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon2">Monto</span>
-                <input id="input-gasto-monto" type="text" class="form-control" placeholder="Monto del gasto"
-                    aria-label="Username" aria-describedby="basic-addon2">
-            </div>
-            <div>
-                <button class="btn btn-primary my-2" type="submit" id="boton-agregar-gasto">Agregar</button>
-                <h3>Para guardar definitivamente (local storage)</h3>
-                <button class="btn btn-primary my-2" type="submit" id="boton-guardar-gasto">Guardar</button>
+            <div class="toast-body">
+                Te falto completar espacios o el dato no es valido.
             </div>
         </div>
-        <!-- Contenedor donde se muestran los gastos agregados -->
-        <div id="registrosContainerGastos">
-            <h3>Registros de gastos</h3>
-            <p>Aquí van los gastos que vas agregando</p>
-        </div>
-    </section>
+    </div>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
