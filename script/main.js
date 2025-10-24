@@ -1,20 +1,3 @@
-//-----Arrays, variables y classes-----//
-// Variables temporales y array principal de ingresos
-let ingresoNombre = ''
-let ingresoCategoria = ''
-let ingresoMonto = ''
-let ingresos = [] // Array que almacena todos los ingresos
-
-class Ingreso {
-    static id = 0
-    constructor(nombre, categoria, monto) {
-        this.id = ++Ingreso.id
-        this.nombre = nombre,
-            this.categoria = categoria,
-            this.monto = monto
-    }
-}
-
 //-----DOM-----//
 let botonAgregarIngreso = document.getElementById('boton-agregar-ingreso')
 let registrosContainer = document.getElementById('registrosContainer')
@@ -23,6 +6,42 @@ const notificationEspacios = document.getElementById('notificationToastEspacios'
 
 //-----Eventos-----//
 botonAgregarIngreso.addEventListener('click', agregarIngreso)
+
+//-----Arrays, variables y classes-----//
+// Variables temporales y array principal de ingresos
+let ingresoNombre = ''
+let ingresoCategoria = ''
+let ingresoMonto = ''
+let ingresos = [] // Array que almacena todos los ingresos
+ingresos = JSON.parse(localStorage.getItem('ingreso'))
+console.log(ingresos)
+
+if (ingresos === null) {
+    console.log('No hay datos para subir al array ingresos')
+    ingresos = []
+    //Poner una notificacion para que el ususario sepa que no hay datos guaradados
+} else {
+    ingresos.forEach(ingreso => {
+        const card = document.createElement('div')
+        card.innerHTML = `<div class="badge text-bg-primary text-wrap mb-2" style="width: 2rem;">
+                                ${ingresos.length}
+                              </div>
+                              <h4>Nombre: ${ingreso.nombre}</h4>
+                              <h4>Categoría: ${ingreso.categoria}</h4>
+                              <h4>Monto: $${ingreso.monto.toLocaleString('es-CO')}</h4>`
+        registrosContainer.appendChild(card)
+    });
+}
+
+class Ingreso {
+    static id = 0
+    constructor(nombre, categoria, monto) {
+        this.id = ++Ingreso.id
+        this.nombre = nombre,
+        this.categoria = categoria,
+        this.monto = monto
+    }
+}
 
 //-----Funciones principales-----//
 // Función principal ingresos: Captura datos del formulario, crea objeto y lo muestra en pantalla

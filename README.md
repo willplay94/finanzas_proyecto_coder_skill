@@ -32,7 +32,7 @@ Este proyecto no requiere instalación de dependencias. Simplemente:
    - Completa los campos: Nombre, Categoría y Monto
    - Haz clic en "Agregar" para ver el registro en pantalla
    - Haz clic en "Guardar" para almacenarlo permanentemente
-
+git 
 2. **Gastos**:
    - Sigue el mismo proceso en la sección de gastos
    - Los gastos se guardan de forma independiente a los ingresos
