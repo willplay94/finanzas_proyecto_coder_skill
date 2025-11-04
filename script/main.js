@@ -1,21 +1,25 @@
 //-----DOM-----//
 let botonAgregarIngreso = document.getElementById('boton-agregar-ingreso')
 let registrosContainer = document.getElementById('registrosContainer')
+let botonBorrarTotal = document.getElementById('boton-borrar-total')
 // Notificaciones toast
 const notificationEspacios = document.getElementById('notificationToastEspacios')
 
 //-----Eventos-----//
 botonAgregarIngreso.addEventListener('click', agregarIngreso)
+botonBorrarTotal.addEventListener('click', borrarTodosDatos)
 
 //-----Arrays, variables y classes-----//
 // Variables temporales y array principal de ingresos
 let ingresoNombre = ''
 let ingresoCategoria = ''
 let ingresoMonto = ''
-let ingresos = [] // Array que almacena todos los ingresos
+let ingresos = []
+let gastos = []
+//Obtiene los datos de local storage
 ingresos = JSON.parse(localStorage.getItem('ingreso'))
 console.log(ingresos)
-
+//Condicional que valida si hay o no datos en el local storage
 if (ingresos === null) {
     console.log('No hay datos para subir al array ingresos')
     ingresos = []
@@ -24,7 +28,7 @@ if (ingresos === null) {
     ingresos.forEach(ingreso => {
         const card = document.createElement('div')
         card.innerHTML = `<div class="badge text-bg-primary text-wrap mb-2" style="width: 2rem;">
-                                ${ingresos.length}
+                                ${ingreso.id}
                               </div>
                               <h4>Nombre: ${ingreso.nombre}</h4>
                               <h4>Categoría: ${ingreso.categoria}</h4>
@@ -38,8 +42,8 @@ class Ingreso {
     constructor(nombre, categoria, monto) {
         this.id = ++Ingreso.id
         this.nombre = nombre,
-        this.categoria = categoria,
-        this.monto = monto
+            this.categoria = categoria,
+            this.monto = monto
     }
 }
 
@@ -83,5 +87,9 @@ function agregarIngreso() {
     document.getElementById('input-ingreso-monto').value = ''
 }
 
-// Descomentar para borrar todos los datos guardados
-// localStorage.clear()
+// Borrar todos los datos registrados
+function borrarTodosDatos() {
+    localStorage.clear()
+    
+    //Agregar notificacion
+}

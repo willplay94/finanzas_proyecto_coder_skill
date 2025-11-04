@@ -9,10 +9,11 @@ Una aplicación web intuitiva para gestionar tus ingresos y gastos personales de
 ## ✨ Características
 
 - **Registro de Ingresos**: Añade tus ingresos especificando nombre, categoría y monto
-- **Registro de Gastos**: Lleva un control detallado de todos tus gastos
 - **Visualización en Tiempo Real**: Los registros se muestran instantáneamente en tarjetas organizadas
+- **Administración de Datos**: Página dedicada para visualizar y buscar todos tus registros almacenados
 - **Almacenamiento Local**: Guarda tus datos de forma permanente en el navegador (localStorage)
-- **Formato de Moneda**: Los montos se muestran con formato colombiano para mejor legibilidad
+- **Formato de Moneda**: Los montos se muestran con formato colombiano para mejor legibilidad (ej: 3.000.000)
+- **Validación de Datos**: Notificaciones visuales para campos vacíos o datos inválidos
 - **Diseño Responsivo**: Interfaz adaptable a diferentes dispositivos gracias a Bootstrap 5
 
 ## 🚀 Cómo Usar
@@ -30,20 +31,22 @@ Este proyecto no requiere instalación de dependencias. Simplemente:
 
 1. **Ingresos**:
    - Completa los campos: Nombre, Categoría y Monto
-   - Haz clic en "Agregar" para ver el registro en pantalla
-   - Haz clic en "Guardar" para almacenarlo permanentemente
-git 
-2. **Gastos**:
-   - Sigue el mismo proceso en la sección de gastos
-   - Los gastos se guardan de forma independiente a los ingresos
+   - Haz clic en "Agregar" para guardar el registro
+   - El registro aparece inmediatamente en la pantalla y se guarda automáticamente
 
 #### Visualizar Registros
 
-Los registros agregados aparecen inmediatamente en tarjetas numeradas con toda la información:
-- Número de registro
-- Nombre del movimiento
+**Página Principal ([index.html](index.html))**:
+Los ingresos agregados aparecen inmediatamente en tarjetas numeradas con:
+- Número de registro (ID único)
+- Nombre del ingreso
 - Categoría
-- Monto formateado
+- Monto con formato colombiano (ej: $3.000.000)
+
+**Página de Administración ([administrar-datos.html](administrar-datos.html))**:
+- Tabla con todos los registros almacenados
+- Información detallada: ID, Nombre, Categoría, Monto y Tipo
+- Formulario de búsqueda (en desarrollo)
 
 ## 🛠️ Tecnologías Utilizadas
 
@@ -69,21 +72,20 @@ proyecto_finanzas_actualizado/
 
 ## 🚧 Características en Desarrollo
 
-### Sección "Administrar Datos"
+Las siguientes funcionalidades están planeadas para futuras versiones:
 
-Actualmente esta sección está **en construcción** 🏗️. Se planea implementar:
-
-- ✅ Visualización de todos los datos almacenados
-- ✅ Búsqueda de registros específicos
-- ✅ Edición de registros existentes
-- ✅ Eliminación de registros individuales
-- ✅ Cálculos de totales y balance general
+- ⏳ **Registro de Gastos**: Implementar funcionalidad completa para gastos (actualmente solo ingresos)
+- ⏳ **Búsqueda funcional**: Completar la búsqueda de registros en la página de administración
+- ⏳ **Edición de registros**: Permitir modificar registros existentes
+- ⏳ **Eliminación individual**: Borrar registros específicos sin eliminar todos
+- ⏳ **Cálculos automáticos**: Totales de ingresos, gastos y balance general
+- ⏳ **Exportación de datos**: Descargar registros en formato CSV o PDF
 
 ## 💡 Notas Importantes
 
-- **Proceso de dos pasos**: Primero debes "Agregar" los registros (temporal) y luego "Guardar" para persistir en localStorage
+- **Guardado automático**: Los registros se guardan automáticamente en localStorage al hacer clic en "Agregar"
 - **Datos locales**: Toda la información se guarda en tu navegador. No se envía a ningún servidor
-- **Limpiar datos**: Para borrar todos los registros, descomenta la línea 121 en `script/main.js` y recarga la página
+- **Limpiar datos**: Usa el botón "Borrar todos los datos" en la página principal para eliminar todos los registros almacenados
 
 ## ✍️ Autor
 

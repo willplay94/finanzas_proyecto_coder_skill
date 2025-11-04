@@ -1,22 +1,30 @@
 let datosAlmacenadosIngresos = []
 let datosAlmacenadosGastos = []
 
-let renderDatosAlmacenadosIngresos = document.getElementById('datosAlmacenadosIngresos')
-let renderDatosAlmacenadosGastos = document.getElementById('datosAlmacenadosGastos')
+let renderDatosAlmacenados = document.getElementById('datosAlmacenados')
+let botonBusqueda = document.getElementById('botonBusqueda')
 
-// function datosDesdeLocalStorage() {
-//     datosAlmacenadosIngresos = JSON.parse(localStorage.getItem('ingreso'))
-//     console.log(datosAlmacenadosIngresos)
-//     datosAlmacenadosGastos = JSON.parse(localStorage.getItem('gasto'))
-//     console.log(datosAlmacenadosGastos)
-//     const dataIngresos = document.createElement('div')
-//     dataIngresos.innerHTML = `<div class="badge text-bg-primary text-wrap mb-2" style="width: 2rem;">
-//                                 ${datosAlmacenadosIngresos.length}
-//                               </div>
-//                               <h4>Nombre: ${datosAlmacenadosIngresos.nombre}</h4>
-//                               <h4>Categoría: ${datosAlmacenadosIngresos.categoria}</h4>
-//                               <h4>Monto: $${datosAlmacenadosIngresos.monto.toLocaleString('es-CO')}</h4>`
-//     renderDatosAlmacenadosIngresos.appendChild(dataIngresos)
-// }
+botonBusqueda.addEventListener('click', busquedaDatos)
 
-// datosDesdeLocalStorage()
+//Obtiene los datos de local storage
+datosAlmacenadosIngresos = JSON.parse(localStorage.getItem('ingreso'))
+console.log(datosAlmacenadosIngresos)
+
+function busquedaDatos() {
+    let cajaBusqueda = document.getElementById('cajaBusqueda').value
+    const nombreIngresoLowerCase = datosAlmacenadosIngresos.map(function(nombreIngresoLowerCase) {
+        nombreIngresoLowerCase.toLowerCase()
+    })
+    console.log(nombreIngresoLowerCase)
+    const resultado = datosAlmacenadosIngresos.find(datoIngreso => datoIngreso.nombre === cajaBusqueda.toLowerCase())
+}
+
+datosAlmacenadosIngresos.forEach(datosAlmacenadosIngreso => {
+    const registro = document.createElement('tr')
+    registro.innerHTML = `<th scope="row">${datosAlmacenadosIngreso.id}</th>
+                            <td>${datosAlmacenadosIngreso.nombre}</td>
+                            <td>${datosAlmacenadosIngreso.categoria}</td>
+                            <td>$${datosAlmacenadosIngreso.monto.toLocaleString('es-CO')}</td>
+                            <td>Ingreso</td>`
+    renderDatosAlmacenados.appendChild(registro)
+});

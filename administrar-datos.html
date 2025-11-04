@@ -32,8 +32,7 @@
                         <a class="nav-link" href="./index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="./administrar-datos.html">Administrar
-                            datos</a>
+                        <a class="nav-link active" aria-current="page" href="./administrar-datos.html">Administrar datos</a>
                     </li>
                 </ul>
             </div>
@@ -43,18 +42,31 @@
     <!-- Titulo principal -->
     <h1 class="mb-4">Administrar datos</h1>
 
+    <!-- Caja de busqueda -->
     <section id="busquedaDatos">
         <h2>Busqueda de datos</h2>
         <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-            <button class="btn btn-outline-success" type="submit">Search</button>
+            <input id="cajaBusqueda" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+            <button id="botonBusqueda" class="btn btn-outline-success" type="submit">Search</button>
         </form>
     </section>
-    <section id="datosAlmacenados">
+
+    <!-- Tabla de datos almacenados -->
+    <section id="datosAlmacenadosSeccion">
         <h2>Datos almacenados</h2>
-        <div id="renderDatosAlmacenados" class="d-flex">
-            <div id="datosAlmacenadosIngresos"></div>
-            <div id="datosAlmacenadosGastos"></div>
+        <div id="renderDatosAlmacenados">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Categoría</th>
+                        <th scope="col">Monto</th>
+                        <th scope="col">Tipo de dato</th>
+                    </tr>
+                </thead>
+                <tbody id="datosAlmacenados"></tbody>
+            </table>
         </div>
     </section>
     <!-- Bootstrap JS -->
