@@ -32,7 +32,8 @@
                         <a class="nav-link" href="./index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="./administrar-datos.html">Administrar datos</a>
+                        <a class="nav-link active" aria-current="page" href="./administrar-datos.html">Administrar
+                            datos</a>
                     </li>
                 </ul>
             </div>
@@ -44,10 +45,11 @@
 
     <!-- Caja de busqueda -->
     <section id="busquedaDatos">
-        <h2>Busqueda de datos</h2>
+        <h2 class="mb-2">Busqueda de datos</h2>
+        <p>Busca por nombre y presiona buscar</p>
         <form class="d-flex" role="search">
             <input id="cajaBusqueda" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-            <button id="botonBusqueda" class="btn btn-outline-success" type="submit">Search</button>
+            <button id="botonBusqueda" class="btn btn-outline-success" type="button">Buscar</button>
         </form>
     </section>
 
@@ -69,6 +71,15 @@
             </table>
         </div>
     </section>
+
+    <!-- Seccion de totales y calculos -->
+    <h2 class="mt-5 mx-3">Total y diferencia</h2>
+    <section class="mx-3">
+        <div id="totalIngresos">
+            <h3>Ingresos</h3>
+        </div>
+    </section>
+
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

@@ -11,10 +11,12 @@ Una aplicación web intuitiva para gestionar tus ingresos y gastos personales de
 - **Registro de Ingresos**: Añade tus ingresos especificando nombre, categoría y monto
 - **Visualización en Tiempo Real**: Los registros se muestran instantáneamente en tarjetas organizadas
 - **Administración de Datos**: Página dedicada para visualizar y buscar todos tus registros almacenados
+- **Búsqueda de Registros**: Encuentra ingresos específicos por nombre (búsqueda sin distinción de mayúsculas/minúsculas)
+- **Cálculo de Totales**: Visualiza automáticamente la suma total de todos tus ingresos
+- **Eliminación de Registros**: Elimina registros individuales desde la búsqueda
 - **Almacenamiento Local**: Guarda tus datos de forma permanente en el navegador (localStorage)
-- **Formato de Moneda**: Los montos se muestran con formato colombiano para mejor legibilidad (ej: 3.000.000)
+- **Formato de Moneda**: Los montos se muestran con formato colombiano para mejor legibilidad (ej: $3.000.000)
 - **Validación de Datos**: Notificaciones visuales para campos vacíos o datos inválidos
-- **Diseño Responsivo**: Interfaz adaptable a diferentes dispositivos gracias a Bootstrap 5
 
 ## 🚀 Cómo Usar
 
@@ -46,7 +48,9 @@ Los ingresos agregados aparecen inmediatamente en tarjetas numeradas con:
 **Página de Administración ([administrar-datos.html](administrar-datos.html))**:
 - Tabla con todos los registros almacenados
 - Información detallada: ID, Nombre, Categoría, Monto y Tipo
-- Formulario de búsqueda (en desarrollo)
+- **Búsqueda de registros**: Busca ingresos por nombre usando el formulario de búsqueda
+- **Total de ingresos**: Visualiza automáticamente la suma total de todos los ingresos registrados
+- **Eliminación individual**: Botón para eliminar registros específicos desde los resultados de búsqueda
 
 ## 🛠️ Tecnologías Utilizadas
 
@@ -60,11 +64,11 @@ Los ingresos agregados aparecen inmediatamente en tarjetas numeradas con:
 
 ```
 proyecto_finanzas_actualizado/
-├── index.html                    # Página principal de registro
-├── administrar-datos.html        # Página de administración (en construcción)
+├── index.html                    # Página principal de registro de ingresos
+├── administrar-datos.html        # Página de administración y visualización de datos
 ├── script/
-│   ├── main.js                  # Lógica principal de ingresos/gastos
-│   └── administrar-datos.js     # Lógica de administración (en desarrollo)
+│   ├── main.js                  # Lógica de registro de ingresos
+│   └── administrar-datos.js     # Lógica de búsqueda, visualización y cálculos
 ├── style/
 │   └── style.css                # Estilos personalizados
 └── README.md
@@ -75,10 +79,11 @@ proyecto_finanzas_actualizado/
 Las siguientes funcionalidades están planeadas para futuras versiones:
 
 - ⏳ **Registro de Gastos**: Implementar funcionalidad completa para gastos (actualmente solo ingresos)
-- ⏳ **Búsqueda funcional**: Completar la búsqueda de registros en la página de administración
 - ⏳ **Edición de registros**: Permitir modificar registros existentes
-- ⏳ **Eliminación individual**: Borrar registros específicos sin eliminar todos
-- ⏳ **Cálculos automáticos**: Totales de ingresos, gastos y balance general
+- ⏳ **Persistencia de eliminación**: Actualizar localStorage cuando se elimina un registro individual
+- ⏳ **Cálculo de balance**: Diferencia entre ingresos y gastos
+- ⏳ **Filtros avanzados**: Filtrar por categoría, rango de fechas y monto
+- ⏳ **Gráficos y estadísticas**: Visualización de datos con gráficos
 - ⏳ **Exportación de datos**: Descargar registros en formato CSV o PDF
 
 ## 💡 Notas Importantes

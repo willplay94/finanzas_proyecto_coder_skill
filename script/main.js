@@ -18,12 +18,9 @@ let ingresos = []
 let gastos = []
 //Obtiene los datos de local storage
 ingresos = JSON.parse(localStorage.getItem('ingreso'))
-console.log(ingresos)
 //Condicional que valida si hay o no datos en el local storage
 if (ingresos === null) {
-    console.log('No hay datos para subir al array ingresos')
     ingresos = []
-    //Poner una notificacion para que el ususario sepa que no hay datos guaradados
 } else {
     ingresos.forEach(ingreso => {
         const card = document.createElement('div')
@@ -90,6 +87,4 @@ function agregarIngreso() {
 // Borrar todos los datos registrados
 function borrarTodosDatos() {
     localStorage.clear()
-    
-    //Agregar notificacion
 }
