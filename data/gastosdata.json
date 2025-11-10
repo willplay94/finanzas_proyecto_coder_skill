@@ -1,0 +1,92 @@
+[
+    {
+        "id": 1,
+        "nombre": "Arriendo",
+        "categoria": "Vivienda",
+        "monto": 1200000
+    },
+    {
+        "id": 2,
+        "nombre": "Transporte",
+        "categoria": "Movilidad",
+        "monto": 300000
+    },
+    {
+        "id": 3,
+        "nombre": "Supermercado",
+        "categoria": "Alimentación",
+        "monto": 450000
+    },
+    {
+        "id": 4,
+        "nombre": "Internet y Teléfono",
+        "categoria": "Servicios",
+        "monto": 140000
+    },
+    {
+        "id": 5,
+        "nombre": "Energía eléctrica",
+        "categoria": "Servicios",
+        "monto": 90000
+    },
+    {
+        "id": 6,
+        "nombre": "Agua",
+        "categoria": "Servicios",
+        "monto": 70000
+    },
+    {
+        "id": 7,
+        "nombre": "Gas",
+        "categoria": "Servicios",
+        "monto": 50000
+    },
+    {
+        "id": 8,
+        "nombre": "Restaurantes",
+        "categoria": "Alimentación",
+        "monto": 120000
+    },
+    {
+        "id": 9,
+        "nombre": "Ropa",
+        "categoria": "Compras",
+        "monto": 100000
+    },
+    {
+        "id": 10,
+        "nombre": "Gimnasio",
+        "categoria": "Deporte",
+        "monto": 65000
+    },
+    {
+        "id": 11,
+        "nombre": "Seguros",
+        "categoria": "Finanzas",
+        "monto": 80000
+    },
+    {
+        "id": 12,
+        "nombre": "Suscripciones (Netflix, Spotify)",
+        "categoria": "Entretenimiento",
+        "monto": 60000
+    },
+    {
+        "id": 13,
+        "nombre": "Hobbies",
+        "categoria": "Entretenimiento",
+        "monto": 50000
+    },
+    {
+        "id": 14,
+        "nombre": "Productos de Aseo",
+        "categoria": "Hogar",
+        "monto": 30000
+    },
+    {
+        "id": 15,
+        "nombre": "Donaciones",
+        "categoria": "Solidaridad",
+        "monto": 20000
+    }
+]

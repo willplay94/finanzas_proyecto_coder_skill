@@ -3,6 +3,10 @@ let datosAlmacenadosIngresos = []
 let datosAlmacenadosGastos = []
 let sumaIngresos = 0
 
+//-----URL base de datos local-----//
+const URL_DATABASE_INGRESOS = './data/ingresosdata.json'
+const URL_DATABASE_GASTOS = './data/gastosdata.json'
+
 //-----DOM-----//
 let renderDatosAlmacenados = document.getElementById('datosAlmacenados')
 let botonBusqueda = document.getElementById('botonBusqueda')
@@ -55,6 +59,31 @@ function busquedaDatos() {
     }
 }
 
+async function cargarDatosLocales() {
+    try {
+        const response = await fetch(URL_DATABASE_INGRESOS)
+        datosAlmacenadosIngresos = await response.json()
+
+        console.log(datosAlmacenadosIngresos)
+
+        //-----Renderizado de tabla-----//
+        datosAlmacenadosIngresos.forEach(datosAlmacenadosIngreso => {
+            const registro = document.createElement('tr')
+            registro.innerHTML = `<th scope="row">${datosAlmacenadosIngreso.id}</th>
+                            <td>${datosAlmacenadosIngreso.nombre}</td>
+                            <td>${datosAlmacenadosIngreso.categoria}</td>
+                            <td>$${datosAlmacenadosIngreso.monto.toLocaleString('es-CO')}</td>
+                            <td>Ingreso</td>`
+            renderDatosAlmacenados.appendChild(registro)
+        });
+
+    } catch (error) {
+        console.error('Error al cargar el JSON:', error)
+    }
+}
+
+cargarDatosLocales()
+
 //-----Renderizado de tabla-----//
 datosAlmacenadosIngresos.forEach(datosAlmacenadosIngreso => {
     const registro = document.createElement('tr')
@@ -69,7 +98,7 @@ datosAlmacenadosIngresos.forEach(datosAlmacenadosIngreso => {
 //-----Cálculos de totales-----//
 function sumaTotalIngresos() {
     // Usa reduce para sumar todos los montos de los ingresos
-    sumaIngresos = datosAlmacenadosIngresos.reduce(function(total, valorActual){
+    sumaIngresos = datosAlmacenadosIngresos.reduce(function (total, valorActual) {
         return total + valorActual.monto
     }, 0)
 

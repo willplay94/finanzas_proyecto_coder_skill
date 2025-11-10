@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "nombre": "Salario Mensual",
+        "categoria": "Trabajo",
+        "monto": 3500000
+    },
+    {
+        "id": 2,
+        "nombre": "Freelance Web",
+        "categoria": "Servicios",
+        "monto": 750000
+    },
+    {
+        "id": 3,
+        "nombre": "Venta de Accesorios",
+        "categoria": "Comercio",
+        "monto": 200000
+    },
+    {
+        "id": 4,
+        "nombre": "Clases Particulares",
+        "categoria": "Educación",
+        "monto": 300000
+    },
+    {
+        "id": 5,
+        "nombre": "Dividendos Fondos",
+        "categoria": "Inversiones",
+        "monto": 150000
+    },
+    {
+        "id": 6,
+        "nombre": "Bonos Empresa",
+        "categoria": "Bonificaciones",
+        "monto": 100000
+    }
+]
