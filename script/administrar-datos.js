@@ -16,8 +16,75 @@ let totalIngresos = document.getElementById('totalIngresos')
 //-----Eventos-----//
 botonBusqueda.addEventListener('click', busquedaDatos)
 
-//-----Carga de datos desde localStorage-----//
+//-----Carga de datos desde localStorage o fetch-----//
+//Trae los datos del local storage
 datosAlmacenadosIngresos = JSON.parse(localStorage.getItem('ingreso'))
+//Valida si hay datos en el local storage para saber si trae desde fetch o no
+if (datosAlmacenadosIngresos === null) {
+    async function cargarDatosLocales() {
+        try {
+            const response = await fetch(URL_DATABASE_INGRESOS)
+            datosAlmacenadosIngresos = await response.json()
+
+            console.log(datosAlmacenadosIngresos)
+
+            //-----Renderizado de tabla-----//
+            datosAlmacenadosIngresos.forEach(datosAlmacenadosIngreso => {
+                const registro = document.createElement('tr')
+                registro.innerHTML = `<th scope="row">${datosAlmacenadosIngreso.id}</th>
+                            <td>${datosAlmacenadosIngreso.nombre}</td>
+                            <td>${datosAlmacenadosIngreso.categoria}</td>
+                            <td>$${datosAlmacenadosIngreso.monto.toLocaleString('es-CO')}</td>
+                            <td>Ingreso</td>`
+                renderDatosAlmacenados.appendChild(registro)
+            });
+
+            //-----Cálculos de totales de los datos con fetch-----//
+            function sumaTotalIngresos() {
+                // Usa reduce para sumar todos los montos de los ingresos
+                sumaIngresos = datosAlmacenadosIngresos.reduce(function (total, valorActual) {
+                    return total + valorActual.monto
+                }, 0)
+
+                // Crea y muestra el elemento con el total formateado
+                const totalIngresosRender = document.createElement('div')
+                totalIngresosRender.innerHTML = `<p>Total: $${sumaIngresos.toLocaleString('es-CO')}</p>`
+                totalIngresos.appendChild(totalIngresosRender)
+            }
+            sumaTotalIngresos()
+
+        } catch (error) {
+            console.error('Error al cargar el JSON:', error)
+        }
+    }
+    cargarDatosLocales()
+
+} else {
+    //-----Renderizado de tabla-----//
+    datosAlmacenadosIngresos.forEach(datosAlmacenadosIngreso => {
+        const registro = document.createElement('tr')
+        registro.innerHTML = `<th scope="row">${datosAlmacenadosIngreso.id}</th>
+                            <td>${datosAlmacenadosIngreso.nombre}</td>
+                            <td>${datosAlmacenadosIngreso.categoria}</td>
+                            <td>$${datosAlmacenadosIngreso.monto.toLocaleString('es-CO')}</td>
+                            <td>Ingreso</td>`
+        renderDatosAlmacenados.appendChild(registro)
+    });
+
+    //-----Cálculos de totales-----//
+    function sumaTotalIngresos() {
+        // Usa reduce para sumar todos los montos de los ingresos
+        sumaIngresos = datosAlmacenadosIngresos.reduce(function (total, valorActual) {
+            return total + valorActual.monto
+        }, 0)
+
+        // Crea y muestra el elemento con el total formateado
+        const totalIngresosRender = document.createElement('div')
+        totalIngresosRender.innerHTML = `<p>Total: $${sumaIngresos.toLocaleString('es-CO')}</p>`
+        totalIngresos.appendChild(totalIngresosRender)
+    }
+    sumaTotalIngresos()
+}
 
 //-----Funciones principales-----//
 // Función de búsqueda: Busca un ingreso por nombre y muestra el resultado
@@ -58,54 +125,3 @@ function busquedaDatos() {
         }
     }
 }
-
-async function cargarDatosLocales() {
-    try {
-        const response = await fetch(URL_DATABASE_INGRESOS)
-        datosAlmacenadosIngresos = await response.json()
-
-        console.log(datosAlmacenadosIngresos)
-
-        //-----Renderizado de tabla-----//
-        datosAlmacenadosIngresos.forEach(datosAlmacenadosIngreso => {
-            const registro = document.createElement('tr')
-            registro.innerHTML = `<th scope="row">${datosAlmacenadosIngreso.id}</th>
-                            <td>${datosAlmacenadosIngreso.nombre}</td>
-                            <td>${datosAlmacenadosIngreso.categoria}</td>
-                            <td>$${datosAlmacenadosIngreso.monto.toLocaleString('es-CO')}</td>
-                            <td>Ingreso</td>`
-            renderDatosAlmacenados.appendChild(registro)
-        });
-
-    } catch (error) {
-        console.error('Error al cargar el JSON:', error)
-    }
-}
-
-cargarDatosLocales()
-
-//-----Renderizado de tabla-----//
-datosAlmacenadosIngresos.forEach(datosAlmacenadosIngreso => {
-    const registro = document.createElement('tr')
-    registro.innerHTML = `<th scope="row">${datosAlmacenadosIngreso.id}</th>
-                            <td>${datosAlmacenadosIngreso.nombre}</td>
-                            <td>${datosAlmacenadosIngreso.categoria}</td>
-                            <td>$${datosAlmacenadosIngreso.monto.toLocaleString('es-CO')}</td>
-                            <td>Ingreso</td>`
-    renderDatosAlmacenados.appendChild(registro)
-});
-
-//-----Cálculos de totales-----//
-function sumaTotalIngresos() {
-    // Usa reduce para sumar todos los montos de los ingresos
-    sumaIngresos = datosAlmacenadosIngresos.reduce(function (total, valorActual) {
-        return total + valorActual.monto
-    }, 0)
-
-    // Crea y muestra el elemento con el total formateado
-    const totalIngresosRender = document.createElement('div')
-    totalIngresosRender.innerHTML = `<p>Total: $${sumaIngresos.toLocaleString('es-CO')}</p>`
-    totalIngresos.appendChild(totalIngresosRender)
-}
-
-sumaTotalIngresos()
