@@ -19,8 +19,32 @@ botonBusqueda.addEventListener('click', busquedaDatos)
 //-----Carga de datos desde localStorage o fetch-----//
 //Trae los datos del local storage
 datosAlmacenadosIngresos = JSON.parse(localStorage.getItem('ingreso'))
+
 //Valida si hay datos en el local storage para saber si trae desde fetch o no
 if (datosAlmacenadosIngresos === null) {
+    //Tostify notificaciones
+    Toastify({
+        text: "Se cargaron datos demo",
+        duration: 5000,
+        position: "center",
+        style: {
+            background: "rgba(57, 143, 100, 0.93)",
+            color: "White",
+            fontWeight: "bold",
+        }
+    }).showToast()
+    
+    Toastify({
+            text: "No hay datos en local storage",
+            duration: 5000,
+            position: "center",
+            style: {
+                background: "rgba(252, 90, 90, 0.93)",
+                color: "White",
+                fontWeight: "bold",
+            }
+        }).showToast()
+
     async function cargarDatosLocales() {
         try {
             const response = await fetch(URL_DATABASE_INGRESOS)
@@ -60,6 +84,18 @@ if (datosAlmacenadosIngresos === null) {
     cargarDatosLocales()
 
 } else {
+    // Toastify notificaciones
+    Toastify({
+        text: "Datos subidos desde local storage",
+        duration: 5000,
+        position: "center",
+        style: {
+            background: "rgba(57, 143, 100, 0.93)",
+            color: "White",
+            fontWeight: "bold",
+        }
+    }).showToast()
+
     //-----Renderizado de tabla-----//
     datosAlmacenadosIngresos.forEach(datosAlmacenadosIngreso => {
         const registro = document.createElement('tr')

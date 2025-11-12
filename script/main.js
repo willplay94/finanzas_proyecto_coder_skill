@@ -54,9 +54,19 @@ function agregarIngreso() {
 
     let montoTipoDeDatoNan = isNaN(ingresoMonto)
 
+    // Valida errores en ingreso de datos en el formulario
     if (ingresoNombre === '' || ingresoCategoria === '' || montoTipoDeDatoNan === true) {
-        const toastBootstrap = bootstrap.Toast.getOrCreateInstance(notificationEspacios)
-        toastBootstrap.show()
+        // Toastify notificacion
+        Toastify({
+            text: "Te falto completar espacios o el dato no es valido",
+            duration: 5000,
+            position: "center",
+            style: {
+                background: "rgba(252, 90, 90, 0.93)",
+                color: "White",
+                fontWeight: "bold",
+            }
+        }).showToast()
     } else {
         // Crear objeto con los datos del usuario
         const ingresoObjeto = new Ingreso(`${ingresoNombre}`, `${ingresoCategoria}`, ingresoMonto)
@@ -76,6 +86,18 @@ function agregarIngreso() {
                               <h4>Categoría: ${ingresoObjeto.categoria}</h4>
                               <h4>Monto: $${ingresoObjeto.monto.toLocaleString('es-CO')}</h4>`
         registrosContainer.appendChild(card)
+
+        // Toastify notificacion
+        Toastify({
+            text: `Guardaste el dato "${ingresoNombre}"`,
+            duration: 3000,
+            position: "center",
+            style: {
+                background: "rgba(57, 143, 100, 0.93)",
+                color: "White",
+                fontWeight: "bold",
+            }
+        }).showToast()
     }
 
     // Limpiar el formulario

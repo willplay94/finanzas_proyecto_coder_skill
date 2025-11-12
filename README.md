@@ -1,10 +1,12 @@
 # 💰 Finanzas Personales
 
-Una aplicación web intuitiva para gestionar tus ingresos y gastos personales de manera sencilla y efectiva.
+Una aplicación web intuitiva para gestionar tus ingresos personales de manera sencilla y efectiva.
 
 ## 📋 Descripción
 
-**Finanzas Personales** es una herramienta de seguimiento financiero que te permite registrar, visualizar y almacenar tus movimientos económicos. Con una interfaz limpia y fácil de usar, podrás mantener un control completo de tus finanzas desde tu navegador.
+**Finanzas Personales** es una herramienta de seguimiento financiero que te permite registrar, visualizar y almacenar tus ingresos. Con una interfaz limpia y fácil de usar, podrás mantener un control de tus finanzas desde tu navegador.
+
+> **Nota**: Actualmente la aplicación está enfocada en el registro de **ingresos**. La funcionalidad de **gastos** se implementará en futuras versiones debido a limitaciones de tiempo en el desarrollo inicial.
 
 ## ✨ Características
 
@@ -17,7 +19,10 @@ Una aplicación web intuitiva para gestionar tus ingresos y gastos personales de
 - **Eliminación de Registros**: Elimina registros individuales desde la búsqueda o todos los datos desde el botón principal
 - **Almacenamiento Local**: Guarda tus datos de forma permanente en el navegador (localStorage)
 - **Formato de Moneda**: Los montos se muestran con formato colombiano para mejor legibilidad (ej: $3.000.000)
-- **Validación de Datos**: Notificaciones visuales tipo toast para campos vacíos o datos inválidos
+- **Notificaciones Toast (Toastify)**: Sistema de notificaciones elegantes que alertan sobre:
+  - Campos vacíos o datos inválidos (notificación roja)
+  - Registros guardados exitosamente (notificación verde)
+  - Estado de carga de datos (notificaciones informativas)
 
 ## 🚀 Cómo Usar
 
@@ -63,7 +68,8 @@ Los ingresos agregados aparecen inmediatamente en tarjetas numeradas con:
   - Async/Await para carga de datos
   - LocalStorage API para persistencia
   - Fetch API para cargar datos de ejemplo
-- **Bootstrap 5**: Framework CSS para diseño responsivo y componentes (toasts, tablas, cards)
+- **Bootstrap 5**: Framework CSS para diseño responsivo y componentes (tablas, cards, navegación)
+- **Toastify.js**: Librería de notificaciones toast para feedback visual al usuario
 - **JSON**: Archivos de datos de ejemplo
 
 ## 📂 Estructura del Proyecto
@@ -87,20 +93,27 @@ proyecto_finanzas_actualizado/
 
 Las siguientes funcionalidades están planeadas para futuras versiones:
 
-- ⏳ **Registro de Gastos**: Implementar funcionalidad completa para gastos (actualmente solo ingresos)
-- ⏳ **Edición de registros**: Permitir modificar registros existentes
+### Prioridad Alta
+- ⏳ **Registro de Gastos**: Implementar funcionalidad completa para gastos (actualmente solo ingresos están disponibles debido a limitaciones de tiempo)
 - ⏳ **Persistencia de eliminación**: Actualizar localStorage cuando se elimina un registro individual desde la búsqueda
 - ⏳ **Corrección de IDs duplicados**: Resolver el problema de IDs que se reinician al recargar la página
 - ⏳ **Limpiar resultados de búsqueda**: Evitar que los resultados se acumulen en búsquedas sucesivas
-- ⏳ **Cálculo de balance**: Diferencia entre ingresos y gastos
+
+### Prioridad Media
+- ⏳ **Edición de registros**: Permitir modificar registros existentes
+- ⏳ **Cálculo de balance**: Diferencia entre ingresos y gastos (requiere implementación de gastos)
 - ⏳ **Filtros avanzados**: Filtrar por categoría, rango de fechas y monto
+
+### Futuro
 - ⏳ **Gráficos y estadísticas**: Visualización de datos con gráficos
 - ⏳ **Exportación de datos**: Descargar registros en formato CSV o PDF
 
 ## 💡 Notas Importantes
 
+- **Solo ingresos por ahora**: La versión actual implementa únicamente el registro de ingresos. Los gastos se agregarán en futuras versiones
 - **Guardado automático**: Los registros se guardan automáticamente en localStorage al hacer clic en "Agregar"
 - **Datos locales**: Toda la información se guarda en tu navegador. No se envía a ningún servidor
+- **Notificaciones toast**: Utiliza Toastify.js para mostrar mensajes de éxito (verde), error (rojo) e información
 - **Limpiar datos**: Usa el botón "Borrar todos los datos" en la página principal para eliminar todos los registros almacenados
 - **Primera visita**: Si no tienes datos guardados, la página de administración mostrará automáticamente 6 registros de ejemplo
 - **Prioridad de datos**: Una vez que agregues tus propios datos, estos tendrán prioridad sobre los datos de ejemplo
